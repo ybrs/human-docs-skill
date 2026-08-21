@@ -4,6 +4,12 @@
 
 The rules come from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's "Signs of AI writing". The [source list](skills/human-docs/references/sources.md) links to each one.
 
+Here is what that changes:
+
+| Before | After |
+|---|---|
+| This repository operationalizes a multidimensional documentation optimization paradigm for producing high-quality technical prose. Its modular skill architecture facilitates automated textual refinement, deterministic scoring, and Markdown table-of-contents generation across heterogeneous repository documentation workflows.<br><br>The integrated rubric provides granular evaluative signals for reader alignment, organizational coherence, accessibility, and human-centric tonal characteristics. By leveraging these interoperable capabilities, users can systematically remediate documentation deficiencies and achieve enhanced communicative outcomes through a repeatable, standards-oriented process. | This repo gives Codex and Claude Code three tools for Markdown files. `human-docs` rewrites unclear text, `docs-score` rates a document and explains lost points, and `markdown-contents` adds or updates a contents list.<br><br>The tools can work together: rewrite a file, check its score, then add navigation. Each skill also includes a script you can run from a terminal. |
+
 <!-- markdown-contents:start -->
 ## Contents
 
