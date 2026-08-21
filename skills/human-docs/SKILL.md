@@ -83,6 +83,11 @@ If the fact is significant the reader will notice.
 Consolation pivots. "Not X, but Y", "not only X but also Y", "where it does win is
 Y", "X rather than Y". State X. State Y. Separately.
 
+Unnecessary negatives. State the instruction or fact directly in positive terms.
+Use a negative only when it prevents a likely mistake or defines a real constraint.
+Write "Paste this into a Codex chat", not "Paste this into a Codex chat, not a
+terminal".
+
 Padding verbs. "serves as", "stands as", "leverages", "features", "offers",
 "boasts", "represents". Use *is*, *has*, *does*, or the concrete verb (*reads*,
 *calls*, *writes*).
@@ -116,6 +121,9 @@ Numbered lists for sequences, bullets for unordered sets, parallel items, always
 introduced by a sentence. Active voice; "Run `make bench`", not "The benchmark can be
 run". Condition first: "If the model is not cached, the first run downloads it."
 Code font for commands, paths, flags, identifiers. Link text says what it links to.
+Put shell commands and any text the reader should copy in fenced code blocks with
+an appropriate language tag, such as `bash`, `text`, or `json`. Do not use indented
+code blocks for copyable content.
 
 ## Before and after
 

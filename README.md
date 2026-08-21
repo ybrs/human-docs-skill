@@ -1,56 +1,85 @@
 # human-docs
 
-A Claude Code plugin with one skill: write repository documentation that a person will read. It ships a checker that flags the mechanical tells of machine-written prose.
+human-docs gives Codex and Claude Code rules for writing repository documentation. It includes a checker for mechanical patterns common in machine-written prose.
 
-The rules come from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's "Signs of AI writing". Each rule in `skills/human-docs/SKILL.md` names its source.
+The rules come from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's "Signs of AI writing". See the [source list](skills/human-docs/references/sources.md) for links and attribution.
 
-## Install for yourself
+## Install in Codex
+
+Paste this into a Codex chat:
+
+```text
+$skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/human-docs
+```
+
+## Install in Claude Code
+
+Choose a personal installation or a project-scoped installation for a team.
+
+### Personal installation
 
 From a terminal:
 
-    claude plugin marketplace add ybrs/human-docs-skill
-    claude plugin install human-docs@ybrs
+```bash
+claude plugin marketplace add ybrs/human-docs-skill
+claude plugin install human-docs@ybrs
+```
 
-Inside a Claude Code session the same commands are `/plugin marketplace add ybrs/human-docs-skill` and `/plugin install human-docs@ybrs`.
+Or use the equivalent commands inside a Claude Code session:
 
-## Install for a team
+```text
+/plugin marketplace add ybrs/human-docs-skill
+/plugin install human-docs@ybrs
+```
+
+### Project installation
 
 Run this from inside the project repo:
 
-    claude plugin marketplace add ybrs/human-docs-skill
-    claude plugin install human-docs@ybrs --scope project
+```bash
+claude plugin marketplace add ybrs/human-docs-skill
+claude plugin install human-docs@ybrs --scope project
+```
 
-The second command writes the plugin into the project's `.claude/settings.json`. Commit that file. Claude Code installs the plugin for anyone who clones the repo.
+The second command writes the plugin configuration to the project's `.claude/settings.json`. Commit that file so Claude Code installs the plugin for anyone who clones the repo.
 
-To do the same by hand, add this to `.claude/settings.json`:
+To configure the plugin by hand, add this to `.claude/settings.json`:
 
-    {
-      "extraKnownMarketplaces": {
-        "ybrs": {
-          "source": { "source": "github", "repo": "ybrs/human-docs-skill" }
-        }
-      },
-      "enabledPlugins": { "human-docs@ybrs": true }
+```json
+{
+  "extraKnownMarketplaces": {
+    "ybrs": {
+      "source": { "source": "github", "repo": "ybrs/human-docs-skill" }
     }
+  },
+  "enabledPlugins": { "human-docs@ybrs": true }
+}
+```
 
 ## Use
 
-Claude loads the skill on its own when it writes or edits prose files. To invoke it by name, type `/human-docs:human-docs`.
+Codex and Claude load the skill when writing or editing repository prose. You can also invoke it by name with `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
 
-To check a file without Claude:
+Run the checker directly with Python:
 
-    python3 skills/human-docs/scripts/slopcheck.py README.md
+```bash
+python3 skills/human-docs/scripts/slopcheck.py README.md
+```
 
-Exit code 1 means an error-level tell is present. `--strict` fails on warnings too.
+By default, the checker exits with status 1 when it finds an error. Pass `--strict` to fail on warnings and informational notices too.
+
+## Repository layout
+
+```text
+.claude-plugin/plugin.json        plugin manifest
+.claude-plugin/marketplace.json   marketplace catalog listing this repo
+skills/human-docs/SKILL.md        the skill
+skills/human-docs/references/     rule sources and the full catalogue of tells
+skills/human-docs/scripts/        slopcheck.py
+```
 
 ## Try without installing
 
-    claude --plugin-dir /path/to/human-docs-skill
-
-## Layout
-
-    .claude-plugin/plugin.json        plugin manifest
-    .claude-plugin/marketplace.json   marketplace catalog listing this repo
-    skills/human-docs/SKILL.md        the skill
-    skills/human-docs/references/     rule sources and the full catalogue of tells
-    skills/human-docs/scripts/        slopcheck.py
+```bash
+claude --plugin-dir /path/to/human-docs-skill
+```
