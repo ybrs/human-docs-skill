@@ -4,18 +4,34 @@
 
 The rules come from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's "Signs of AI writing". The [source list](skills/human-docs/references/sources.md) links to each one.
 
+<!-- markdown-contents:start -->
+## Contents
+
+- [Install in Codex](#install-in-codex)
+- [Install in Claude Code](#install-in-claude-code)
+  - [Personal installation](#personal-installation)
+  - [Project installation](#project-installation)
+- [Use human-docs](#use-human-docs)
+- [Score a document](#score-a-document)
+- [Add a contents list](#add-a-contents-list)
+- [Repository layout](#repository-layout)
+- [Try without installing](#try-without-installing)
+<!-- markdown-contents:end -->
+
 ## Install in Codex
 
-Paste this into a Codex chat:
+Install the skills you want. Paste each command into a Codex chat separately.
 
 ```text
 $skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/human-docs
 ```
 
-Install the scoring skill separately:
-
 ```text
 $skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/docs-score
+```
+
+```text
+$skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/markdown-contents
 ```
 
 ## Install in Claude Code
@@ -62,19 +78,74 @@ To configure the plugin by hand, add this to `.claude/settings.json`:
 }
 ```
 
-## Usage
+## Use human-docs
 
 Codex and Claude load `human-docs` when writing or editing documentation. To call it by name, use `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
 
-Score an English Markdown or text document in Codex:
+Ask it to rewrite a file:
+
+```text
+$human-docs rewrite README.md so a new contributor can follow it
+```
+
+Ask it to review a file without changing it:
+
+```text
+$human-docs review docs/runbook.md and list the parts that are hard to understand
+```
+
+When it changes a file, it runs the writing checker before it finishes. Its reply
+names the changed files and any warnings that remain.
+
+Run the checker yourself:
+
+```bash
+python3 skills/human-docs/scripts/slopcheck.py README.md
+```
+
+The checker returns status 1 when it finds an error. Add `--strict` to return status
+1 for warnings and notes too.
+
+## Score a document
+
+Score an English Markdown or text file in Codex:
 
 ```text
 $docs-score score README.md as a readme
 ```
 
-The score checks whether the document has a clear purpose, useful sections, clear writing, accessible formatting, and a human tone. It cannot tell whether the facts are correct, whether anything is missing, or whether the document actually helps its readers. A person still needs to check those things.
+Choose the type when it is known:
 
-Run the scorer directly with Python:
+```text
+$docs-score score docs/deploy.md as a runbook
+```
+
+Compare two versions:
+
+```text
+$docs-score compare README.md with docs/old-readme.md
+```
+
+The result looks like this:
+
+```text
+docs/setup.md: 82/100 (Strong)
+Type: how-to (selected, confidence 100%)
+Categories:
+  Purpose         16/20
+  Organization    17/20
+  Clear writing   19/25
+  Accessibility   15/15
+  Human tone      15/20
+Findings:
+  -4 Purpose: Add ordered steps for a how-to document.
+```
+
+The findings explain where points were lost and what to fix. The score cannot tell
+whether the facts are correct, whether anything is missing, or whether the document
+actually helps its readers. A person still needs to check those things.
+
+Run it yourself:
 
 ```bash
 python3 skills/docs-score/scripts/score_docs.py README.md --type readme
@@ -82,13 +153,41 @@ python3 skills/docs-score/scripts/score_docs.py README.md --type readme
 
 Pass `--json` if another program needs to read the result. See [how scoring works](skills/docs-score/references/scoring.md) for the points and checks used for each type of document.
 
-Run the checker directly with Python:
+## Add a contents list
 
-```bash
-python3 skills/human-docs/scripts/slopcheck.py README.md
+Add or update a contents list in `README.md`:
+
+```text
+$markdown-contents add a contents list to README.md
 ```
 
-By default, the checker exits with status 1 when it finds an error. Pass `--strict` to fail on warnings and informational notices too.
+The skill puts it after the title and opening description, before the first section.
+
+For another Markdown file, name the exact location:
+
+```text
+$markdown-contents add a contents list to docs/guide.md before "Install"
+```
+
+```text
+$markdown-contents add a contents list to docs/guide.md after line 20
+```
+
+The skill adds hidden markers around the generated list. Running it again replaces
+the old list instead of adding another one.
+
+Run it yourself with the `md-toc` Python package:
+
+```bash
+uv run --with md-toc==9.0.0 python3 skills/markdown-contents/scripts/add_contents.py README.md
+```
+
+For files other than `README.md`, choose a location with `--before-heading`,
+`--after-heading`, `--at-line`, or `--after-line`:
+
+```bash
+uv run --with md-toc==9.0.0 python3 skills/markdown-contents/scripts/add_contents.py docs/guide.md --before-heading "Install"
+```
 
 ## Repository layout
 
@@ -101,7 +200,10 @@ skills/human-docs/scripts/        slopcheck.py
 skills/docs-score/SKILL.md        the scoring skill
 skills/docs-score/references/     scoring rules and sources
 skills/docs-score/scripts/        score_docs.py
-tests/                            scorer tests
+skills/markdown-contents/SKILL.md the contents-list skill
+skills/markdown-contents/references/ package and GitHub sources
+skills/markdown-contents/scripts/ add_contents.py
+tests/                            skill tests
 ```
 
 ## Try without installing

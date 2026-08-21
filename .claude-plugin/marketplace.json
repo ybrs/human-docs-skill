@@ -5,7 +5,7 @@
     {
       "name": "human-docs",
       "source": "./",
-      "description": "Help Codex and Claude Code write clear documentation, check it, and give it a score with reasons."
+      "description": "Help Codex and Claude Code write clear documentation, score it with reasons, and add contents lists to Markdown files."
     }
   ]
 }

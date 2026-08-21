@@ -1,6 +1,6 @@
 {
   "name": "human-docs",
-  "description": "Help Codex and Claude Code write clear documentation, check it, and give it a score with reasons.",
-  "version": "0.2.0",
+  "description": "Help Codex and Claude Code write clear documentation, score it with reasons, and add contents lists to Markdown files.",
+  "version": "0.3.0",
   "author": { "name": "ybrs" }
 }

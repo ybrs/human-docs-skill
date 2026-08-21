@@ -671,7 +671,7 @@ def print_report(report: dict[str, object]) -> None:
         for finding in report["findings"]:
             location = f" L{finding['line']}" if finding["line"] else ""
             print(
-                f"  -{finding['deduction']:>2} {finding['category']}/{finding['rule']}"
+                f"  -{finding['deduction']} {category_labels[finding['category']]}"
                 f"{location}: {finding['message']}"
             )
     else:
