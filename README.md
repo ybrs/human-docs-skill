@@ -56,9 +56,11 @@ To configure the plugin by hand, add this to `.claude/settings.json`:
 }
 ```
 
-## Use
+## Usage
 
-Codex and Claude load the skill when writing or editing repository prose. You can also invoke it by name with `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
+Codex and Claude load the skill when writing or editing repository prose. 
+
+You can also invoke it by name with `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
 
 Run the checker directly with Python:
 
