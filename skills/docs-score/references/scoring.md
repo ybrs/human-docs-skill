@@ -1,15 +1,16 @@
-# Scoring rubric
+# How scoring works
 
-The scorer starts each category at its maximum and deducts points for findings.
+The scorer starts each category at its maximum and removes points when it finds a
+problem.
 Category scores do not go below zero.
 
 | Category | Points | What the script checks |
 |---|---:|---|
-| Reader fit | 20 | Opening purpose, document-type signals, actionable structure |
-| Structure | 20 | Title, useful headings, heading hierarchy, paragraph organization |
-| Clarity | 25 | Sentence length, paragraph length, passive voice, weak constructions, reading ease |
+| Purpose | 20 | Opening purpose, signs of the document type, steps readers can follow |
+| Organization | 20 | Title, useful headings, heading order, paragraph organization |
+| Clear writing | 25 | Sentence length, paragraph length, passive voice, indirect wording, reading ease |
 | Accessibility | 15 | Descriptive links, image alternatives, acronym definitions, list formatting |
-| Human style | 20 | Process narration, chat leakage, puffery, canned sections, formatting tells |
+| Human tone | 20 | Search reports, chat language, sales language, stock sections, formatting habits |
 
 ## Ratings
 
@@ -21,10 +22,10 @@ Category scores do not go below zero.
 | 60–69 | Needs work |
 | 0–59 | Weak |
 
-These labels describe the checks in this rubric. They do not certify the facts in
+These labels describe the checks used by the script. They do not prove the facts in
 the document.
 
-## Reader-fit checks
+## Checks for each type of document
 
 The `--type` option selects checks suited to the reader's purpose.
 
@@ -52,9 +53,9 @@ necessary domain terms can lower that number without making a document worse, so
 reading ease accounts for at most five points. The scorer also reports average
 sentence length and the share of sentences over 30 words.
 
-## Human review gates
+## What a person still needs to check
 
-The script cannot establish these properties from prose alone:
+The script cannot establish these properties from the text alone:
 
 - Technical accuracy against the product or code
 - Completeness for the intended task and audience
@@ -63,4 +64,4 @@ The script cannot establish these properties from prose alone:
 - Flow, taste, and ease of use
 
 Review these separately before publishing. User testing, support outcomes, search
-success, and task-completion data are stronger evidence than a prose score.
+success, and task-completion data are stronger evidence than a writing score.

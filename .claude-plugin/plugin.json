@@ -1,6 +1,6 @@
 {
   "name": "human-docs",
-  "description": "Write and score repository documentation for human readers. Includes a prose checker and a deterministic documentation scoring rubric.",
+  "description": "Help Codex and Claude Code write clear documentation, check it, and give it a score with reasons.",
   "version": "0.2.0",
   "author": { "name": "ybrs" }
 }

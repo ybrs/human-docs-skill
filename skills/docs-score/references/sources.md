@@ -1,13 +1,13 @@
 # Sources
 
-The rubric uses the following guidance. The scoring weights are local to this skill;
-the sources do not prescribe a 100-point score.
+The score uses the following guidance. The point values come from this skill; these
+sources do not define a 100-point score.
 
 ## Google developer documentation style guide
 
 https://developers.google.com/style/highlights
 
-The guide recommends accessible and conversational prose, active voice, second
+The guide recommends accessible and conversational writing, active voice, second
 person, conditions before instructions, sentence-case headings, appropriate list
 types, code formatting, image alternatives, and descriptive link text.
 

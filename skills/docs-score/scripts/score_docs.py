@@ -407,7 +407,7 @@ def score_structure(
                     "Keep each paragraph focused; avoid paragraphs over seven sentences.")
     if prose_paragraphs >= 6 and one_sentence / prose_paragraphs > 0.5:
         add_finding(findings, scores, "structure", "fragmented-paragraphs", 3,
-                    "Most prose paragraphs contain one sentence; group related ideas.")
+                    "Most paragraphs contain one sentence; group related ideas.")
 
 
 def score_clarity(
@@ -459,7 +459,7 @@ def score_clarity(
     if ease is not None and len(words) >= 100:
         if ease < 30:
             add_finding(findings, scores, "clarity", "reading-ease", 5,
-                        f"Flesch Reading Ease is {ease:.1f}; inspect dense prose and unexplained terms.")
+                        f"Flesch Reading Ease is {ease:.1f}; inspect dense writing and unexplained terms.")
         elif ease < 45:
             add_finding(findings, scores, "clarity", "reading-ease", 3,
                         f"Flesch Reading Ease is {ease:.1f}; inspect dense passages.")
@@ -583,13 +583,13 @@ def score_sample_size(
                 category,
                 "insufficient-content",
                 scores[category],
-                "The file has too little prose to score.",
+                "The file has too little text to score.",
             )
     elif word_count < 30:
         add_finding(findings, scores, "reader_fit", "thin-content", 10,
                     "Add enough content to satisfy the reader's task.")
         add_finding(findings, scores, "clarity", "small-sample", 8,
-                    "The prose sample is too small for a reliable clarity score.")
+                    "The text sample is too small for a reliable clarity score.")
         add_finding(findings, scores, "structure", "thin-content", 4,
                     "The document has too little content to demonstrate useful structure.")
 
@@ -649,8 +649,15 @@ def print_report(report: dict[str, object]) -> None:
         f"({report['type_source']}, confidence {report['type_confidence']:.0%})"
     )
     print("Categories:")
+    category_labels = {
+        "reader_fit": "Purpose",
+        "structure": "Organization",
+        "clarity": "Clear writing",
+        "accessibility": "Accessibility",
+        "human_style": "Human tone",
+    }
     for name, value in report["categories"].items():
-        label = name.replace("_", " ").title()
+        label = category_labels[name]
         print(f"  {label:<15} {value['score']:>2}/{value['maximum']}")
     metrics = report["metrics"]
     print(
@@ -669,7 +676,7 @@ def print_report(report: dict[str, object]) -> None:
             )
     else:
         print("Findings: none")
-    print("Human review gates (not scored):")
+    print("A person still needs to check:")
     for gate in report["review_gates"]:
         print(f"  - {gate}")
 

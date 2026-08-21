@@ -1,6 +1,6 @@
 ---
 name: human-docs
-description: Write and edit repository documents (README, ARCHITECTURE, design docs, benchmark writeups, runbooks, CHANGELOG, API reference, PR descriptions, any .md/.rst/.txt prose) so that a person reads them without noticing a machine wrote them. Use this every time you create or change a prose file in a repo, and whenever someone calls the output "AI slop", "fluff", "robotic", or asks for "plain" or "proper" docs. Run scripts/slopcheck.py before you finish.
+description: Write and edit repository documents (README, ARCHITECTURE, design docs, benchmark writeups, runbooks, CHANGELOG, API reference, PR descriptions, and .md/.rst/.txt files) so they sound like a person wrote them. Use this every time you create or change documentation in a repo, and whenever someone calls the output "AI slop", "fluff", "robotic", or asks for "plain" or "proper" docs. Run scripts/slopcheck.py before you finish.
 ---
 
 # Writing docs a person will read
@@ -59,7 +59,7 @@ needed:
 | Benchmark | Hardware, model, config, command, numbers, date, link to raw runs | What the result "means for the project" |
 | ADR / design doc | Decision, context, options considered, consequences | Hedging, praise for the chosen option |
 | Runbook | Symptom, exact commands, expected output, who to call | Theory |
-| API reference | Signature, parameters, return, errors, one example | Tutorial prose |
+| API reference | Signature, parameters, return, errors, one example | Tutorial material |
 | CHANGELOG | One line per change, what changed | Why it matters |
 
 ## Habits to break
@@ -95,6 +95,13 @@ Padding verbs. "serves as", "stands as", "leverages", "features", "offers",
 Vocabulary. *Additionally*, *crucial*, *pivotal*, *robust*, *comprehensive*,
 *seamless*, *enhance*, *showcase*, *underscore*, *leverage*. One is fine. Several in
 a file is the signature.
+
+Unfamiliar words. Use words people use in normal conversation. Do not replace a
+simple word with language used mainly by writers, academics, managers, or a specific
+trade. Say "text" or "writing", not "prose". Say "scoring rules", not "rubric". Say
+"use", not "utilize". Keep a technical term when it is more accurate than a common
+word and the intended reader is expected to know it. Otherwise, define it on first
+use or link to a definition.
 
 Time words without a date. "currently", "now", "recently", "soon", "planned". Either
 add the date or remove the word. Future features go in ROADMAP or issues, not in the

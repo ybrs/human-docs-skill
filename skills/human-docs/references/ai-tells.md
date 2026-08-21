@@ -40,7 +40,7 @@ enhancing..., valuable insights, align/resonate with.
 
 ### Promotional language
 
-Drifts toward advertising or travel-guide prose even when asked for neutral tone. Newer
+Drifts toward advertising or travel-guide writing even when asked for neutral tone. Newer
 models are subtler than "the best" but still positive by default.
 
 Words to watch: boasts a, vibrant, rich, profound, enhancing, showcasing, exemplifies,
@@ -143,7 +143,7 @@ analysis look complete. List what is supported, whatever the count.
   uses them more than professional writers.
 - **Emoji as formatting** in headings or bullets.
 - **Thematic breaks** (`---`) between every section.
-- **Unnecessary small tables** for content that is one sentence of prose.
+- **Unnecessary small tables** for content that is one sentence of text.
 - **Curly quotes and apostrophes** where the rest of the file uses straight ones.
 
 ## Communication that leaked into the document
