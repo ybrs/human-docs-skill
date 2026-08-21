@@ -5,7 +5,7 @@
     {
       "name": "human-docs",
       "source": "./",
-      "description": "Write repository documentation a human will read; includes a slop checker."
+      "description": "Write and score repository documentation for human readers; includes prose checks and a scoring rubric."
     }
   ]
 }

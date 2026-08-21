@@ -1,6 +1,6 @@
 # human-docs
 
-human-docs gives Codex and Claude Code rules for writing repository documentation. It includes a checker for mechanical patterns common in machine-written prose.
+human-docs gives Codex and Claude Code rules for writing repository documentation. It includes a checker for mechanical patterns common in machine-written prose and a separate skill that scores technical documents against a published rubric.
 
 The rules come from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's "Signs of AI writing". See the [source list](skills/human-docs/references/sources.md) for links and attribution.
 
@@ -10,6 +10,12 @@ Paste this into a Codex chat:
 
 ```text
 $skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/human-docs
+```
+
+Install the scoring skill separately:
+
+```text
+$skill-installer https://github.com/ybrs/human-docs-skill/tree/main/skills/docs-score
 ```
 
 ## Install in Claude Code
@@ -58,7 +64,23 @@ To configure the plugin by hand, add this to `.claude/settings.json`:
 
 ## Use
 
-Codex and Claude load the skill when writing or editing repository prose. You can also invoke it by name with `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
+Codex and Claude load `human-docs` when writing or editing repository prose. You can also invoke it by name with `$human-docs` in Codex or `/human-docs:human-docs` in Claude.
+
+Score an English Markdown or text document in Codex:
+
+```text
+$docs-score score README.md as a readme
+```
+
+The score covers reader fit, structure, clarity, accessibility, and the style rules in this repository. Accuracy, completeness, usefulness, and fit for the intended audience remain human review checks.
+
+Run the scorer directly with Python:
+
+```bash
+python3 skills/docs-score/scripts/score_docs.py README.md --type readme
+```
+
+Pass `--json` for machine-readable output. See the [scoring rubric](skills/docs-score/references/rubric.md) for category weights and document-type checks.
 
 Run the checker directly with Python:
 
@@ -76,6 +98,10 @@ By default, the checker exits with status 1 when it finds an error. Pass `--stri
 skills/human-docs/SKILL.md        the skill
 skills/human-docs/references/     rule sources and the full catalogue of tells
 skills/human-docs/scripts/        slopcheck.py
+skills/docs-score/SKILL.md        the scoring skill
+skills/docs-score/references/     scoring rubric and sources
+skills/docs-score/scripts/        score_docs.py
+tests/                            scorer tests
 ```
 
 ## Try without installing
