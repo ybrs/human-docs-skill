@@ -1,0 +1,6 @@
+{
+  "name": "human-docs",
+  "description": "Write repository documentation a human will read. Rules from the Google developer documentation style guide, Google Technical Writing One, Diátaxis, and Wikipedia's Signs of AI writing. Includes a slop checker.",
+  "version": "0.1.0",
+  "author": { "name": "ybrs" }
+}

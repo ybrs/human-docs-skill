@@ -1,0 +1,11 @@
+{
+  "name": "ybrs",
+  "owner": { "name": "ybrs" },
+  "plugins": [
+    {
+      "name": "human-docs",
+      "source": "./",
+      "description": "Write repository documentation a human will read; includes a slop checker."
+    }
+  ]
+}
