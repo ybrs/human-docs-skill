@@ -1,7 +1,6 @@
 ---
 name: human-docs
-description: Write and edit repository documents (README, ARCHITECTURE, design docs, benchmark writeups, runbooks, CHANGELOG, API reference, PR descriptions, and .md/.rst/.txt files) so they sound like a person wrote them. Use this every time you create or change documentation in a repo, and whenever someone calls the output "AI slop", "fluff", "robotic", or asks for "plain" or "proper" docs. Run scripts/slopcheck.py after you review/rewrite the document. Not before.
----
+description: Write and edit repository documents (README, ARCHITECTURE, design docs, benchmark writeups, runbooks, CHANGELOG, API reference, PR descriptions, and .md/.rst/.txt files) so they sound like a person wrote them. Use this every time you create or change documentation in a repo, and whenever someone calls the output "AI slop", "fluff", "robotic", or asks for "plain" or "proper" docs. ---
 
 # Writing docs a person will read
 
