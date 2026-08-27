@@ -31,23 +31,39 @@ needed:
 
 ## Procedure
 
-1. Decide what kind of document this is. Reference (facts to look up), how-to
+1. First read references in this skill.
+
+2. Decide what kind of document this is. Reference (facts to look up), how-to
    (steps to do one task), tutorial (a lesson), or explanation (why). A README is
    reference plus a short how-to. A benchmark page is reference. An ADR is
    explanation. Keep the other kinds out of it.
 
-2. Say to yourself aloud, who reads this and what they do afterwards. Usually it is
+3. Say to yourself aloud, who reads this and what they do afterwards. Usually it is
    implicit and one sentence. If you can't say it, you don't know what to write yet.
 
    This is not a line that you put into the document, in this procedure you have to understand
    who before going further. If in doubt. Ask the user.
 
-4. Write only what the reader came for. For each sentence ask: is this about the
+4. Go through sentences, paragraphs, one by one. Read it slowly. 
+   
+   Take your time. Think about the sentence, ask yourself will this sentence means anything to user. 
+
+   Does the sentence has padding-words, unnecessary explainations, filler-words. Remove them. Does the meaning change ? Then short version is better. 
+
+   You need to do this exercise for the whole document. Not just skim. Apply the rules, whole rules, one by one. This is your task. 
+   
+   Again we don't want you to skim and give a response. We want you to work like a book editor. Checking every line. 
+
+   There is no shortcut to this step. We don't want a mechanical check. We want to come up with meaningful, human readable documents. 
+
+   If you are in doubt, ask the user.
+
+5. Write only what the reader came for. For each sentence ask: is this about the
    subject, or about me? Sentences about you (what you searched, what you couldn't
    find, what you made sure of, what you'd like to add next) are deleted, not
    rewritten.
 
-5. Read the file once as the reader. Not as the author checking rules.
+6. Read the file once as the reader. Not as the author checking rules.
 
 ## What the reader wants, by document
 
