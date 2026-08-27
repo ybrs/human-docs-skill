@@ -37,19 +37,22 @@ needed:
    reference plus a short how-to. A benchmark page is reference. An ADR is
    explanation. Keep the other kinds out of it.
 
-2. Say in the first line who reads this and what they do afterwards. Usually it is
+2. Say to yourself aloud, who reads this and what they do afterwards. Usually it is
    implicit and one sentence. If you can't say it, you don't know what to write yet.
 
-3. Write only what the reader came for. For each sentence ask: is this about the
+   This is not a line that you put into the document, in this procedure you have to understand
+   who before going further. If in doubt. Ask the user.
+
+4. Write only what the reader came for. For each sentence ask: is this about the
    subject, or about me? Sentences about you (what you searched, what you couldn't
    find, what you made sure of, what you'd like to add next) are deleted, not
    rewritten.
 
-4. Run `python3 scripts/slopcheck.py <file>`. It flags the mechanical patterns
+5. Run `python3 scripts/slopcheck.py <file>`. It flags the mechanical patterns
    listed in `references/ai-tells.md`. Fix every error. Read each warning and
    either fix it or decide it is fine. The checker is a net, not a judge.
 
-5. Read the file once as the reader. Not as the author checking rules.
+6. Read the file once as the reader. Not as the author checking rules.
 
 ## What the reader wants, by document
 
