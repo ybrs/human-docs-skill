@@ -47,11 +47,7 @@ needed:
    find, what you made sure of, what you'd like to add next) are deleted, not
    rewritten.
 
-5. Run `python3 scripts/slopcheck.py <file>`. It flags the mechanical patterns
-   listed in `references/ai-tells.md`. Fix every error. Read each warning and
-   either fix it or decide it is fine. The checker is a net, not a judge.
-
-6. Read the file once as the reader. Not as the author checking rules.
+5. Read the file once as the reader. Not as the author checking rules.
 
 ## What the reader wants, by document
 
